@@ -1,0 +1,31 @@
+{
+  "name": "mercadobtc",
+  "version": "1.0.0",
+  "description": "bot mercado bitcoin",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/marcoswca/mercadobtc-bot.git"
+  },
+  "keywords": [
+    "bot",
+    "mercadobtc",
+    "btc",
+    "crypto"
+  ],
+  "author": "Marcos Arruda",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/marcoswca/mercadobtc-bot/issues"
+  },
+  "homepage": "https://github.com/marcoswca/mercadobtc-bot#readme",
+  "dependencies": {
+    "axios": "^0.17.1",
+    "crypto": "^1.0.1",
+    "dotenv-safe": "^4.0.4",
+    "querystring": "^0.2.0"
+  }
+}

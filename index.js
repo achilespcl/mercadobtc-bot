@@ -19,10 +19,10 @@ let tradeApi = new MercadoBitcoinTrade({
 setInterval(() =>
   infoApi.ticker((tick) => {
     if (tick.ticker.sell <= 58000) {
-      tradeApi.getAccountInfo(
-        (data) => console.log(data),
-        (data) => console.log(data));
-      tradeApi.listMyOrders({},
+      tradeApi.listMyOrders({
+          coin_pair: 'BRLBTC',
+          status_list: ['2']
+        },
         (data) => console.log(data),
         (data) => console.log(data));
     } else

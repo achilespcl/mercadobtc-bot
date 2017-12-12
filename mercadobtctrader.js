@@ -6,7 +6,7 @@ const ENDPOINT_API = 'https://www.mercadobitcoin.com.br/api/'
 const ENDPOINT_TRADE_PATH = "/tapi/v3/"
 const ENDPOINT_TRADE_API = 'https://www.mercadobitcoin.net' + ENDPOINT_TRADE_PATH
 
-var MercadoBitcoinTrade = function(config) {
+const MercadoBitcoinTrade = function(config) {
   this.config = {
     KEY: config.key,
     SECRET: config.secret,
@@ -50,14 +50,14 @@ MercadoBitcoinTrade.prototype = {
 
   call: function(method, parameters, success, error) {
 
-    var now = Math.round(new Date().getTime() / 1000)
-    var queryString = qs.stringify({
+    let now = Math.round(new Date().getTime() / 1000)
+    let queryString = qs.stringify({
       'tapi_method': method,
       'tapi_nonce': now
     })
     if (parameters) queryString += '&' + qs.stringify(parameters)
 
-    var signature = crypto.createHmac('sha512', this.config.SECRET)
+    let signature = crypto.createHmac('sha512', this.config.SECRET)
       .update(ENDPOINT_TRADE_PATH + '?' + queryString)
       .digest('hex')
 
@@ -72,7 +72,7 @@ MercadoBitcoinTrade.prototype = {
       .then(function(response) {
         if (response.data) {
           if (response.data.status_code === 100 && success)
-            success(response.data);
+            success(response.data.response_data);
           else if (error) {
             error(response.data.error_message);
           } else {

@@ -1,7 +1,7 @@
 const axios = require('axios')
 const ENDPOINT_API = 'https://www.mercadobitcoin.com.br/api/'
 
-var MercadoBitcoin = function(config) {
+const MercadoBitcoin = function(config) {
   this.config = {
     CURRENCY: config.currency
   }
